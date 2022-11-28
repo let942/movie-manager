@@ -1,0 +1,11 @@
+{
+  "name": "movie-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "let942",
+  "license": "ISC"
+}
