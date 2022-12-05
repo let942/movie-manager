@@ -1,7 +1,7 @@
 import { Model, INTEGER, STRING, DATE } from 'sequelize';
 import db from '.';
 
-class Movie extends Model {
+class Movies extends Model {
   id!: number;
   name!: string;
   source!: string;
@@ -9,7 +9,7 @@ class Movie extends Model {
   whatchedAt!: Date;
 }
 
-Movie.init({
+Movies.init({
   id: {
     type: INTEGER,
     allowNull: false,
@@ -38,5 +38,5 @@ Movie.init({
   timestamps: false,
 })
 
-export default Movie;
+export default Movies;
 
