@@ -1,9 +1,8 @@
 import express from 'express'
 import cors from 'cors';
-import Movies from './database/models/movie';
+import movieRoute from './routes/movieRoutes';
 
 import { Router, Request, Response, NextFunction } from 'express';
-
 
 
 class App {
@@ -12,8 +11,7 @@ class App {
   constructor() {
     this.app = express();
     this.config();
-    console.log(Movies);
-    this.app.get('/', async (_req: Request, res: Response)=> res.json(await Movies.findAll()))
+    this.app.get('/', async (_req: Request, res: Response)=> res.send('Movies API'))
     }
 
     private config(): void {
@@ -27,6 +25,7 @@ class App {
       this.app.use(cors());
       this.app.use(express.json());
       this.app.use(accessControl);
+      this.app.use('/movies', movieRoute)
     }
 
   public start(PORT: string | number): void {
