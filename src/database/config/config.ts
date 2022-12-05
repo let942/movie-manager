@@ -1,15 +1,15 @@
-import Sequelize from 'sequelize';
+import { Options } from 'sequelize';
 
-const config = new Sequelize.Sequelize({
+const config:  Options = {
   dialect: 'postgres',
   host: '127.0.0.1',
   username: 'postgres',
   password: 'postgres',
   database: 'movie_manager',
-  port: 5433,
+  port: 5432,
   define: {
     timestamps: true,
   },
-});
+};
 
 export default config;

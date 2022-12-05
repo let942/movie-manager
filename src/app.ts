@@ -1,5 +1,6 @@
 import express from 'express'
 import cors from 'cors';
+import Movie from './database/models/movie';
 
 import { Router, Request, Response, NextFunction } from 'express';
 
@@ -10,7 +11,8 @@ class App {
   constructor() {
     this.app = express();
     this.config();
-    this.app.get('/', (_req: Request, res: Response)=> res.send('oi'))
+    console.log(Movie);
+    this.app.get('/', async (_req: Request, res: Response)=> res.json(await Movie.findAll()))
     }
 
     private config(): void {
