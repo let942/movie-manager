@@ -12,4 +12,14 @@ export default class MovieController {
     const result = await this._movieService.findAll();
     return res.status(200).json(result);
   }
+
+  public async findById(
+    req: Request,
+    res: Response<IMovie>,
+  ) {
+    const {id} = req.params
+    const numberId = parseInt(id)
+    const result = await this._movieService.findById(numberId);
+    return res.status(200).json(result)
+  }
 }

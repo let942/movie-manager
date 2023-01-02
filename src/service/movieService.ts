@@ -12,6 +12,16 @@ class MovieService implements IMovieService {
     const movies = await Movies.findAll();
     return movies
   }
+
+  public async findById(id: number): Promise<IMovie>{
+    const movie = await Movies.findByPk(id);
+    if (movie != null){
+      return movie
+    }
+      throw new Error('movie not found');
+  }
+
+
 }
 
 export default MovieService;

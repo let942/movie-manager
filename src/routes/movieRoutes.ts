@@ -9,5 +9,6 @@ const movieController = new MovieController(movieService);
 const movieRoute = Router();
 
 movieRoute.get('/', (req, res)=> movieController.findAll(req, res));
+movieRoute.get('/:id', (req, res)=> movieController.findById(req, res));
 
 export default movieRoute;
