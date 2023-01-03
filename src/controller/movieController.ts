@@ -30,4 +30,15 @@ export default class MovieController {
     const movie = await this._movieService.create(req.body);
     return res.status(201).json(movie);
   }
+
+  public async delete(
+    req: Request,
+    res: Response<number>,
+  ){
+    const {id} = req.body
+    const numberId = parseInt(id)
+    await this._movieService.delete(numberId);
+    return res.status(200).json(numberId);
+  }
+
 }

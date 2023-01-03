@@ -10,6 +10,8 @@ const movieRoute = Router();
 
 movieRoute.get('/', (req, res)=> movieController.findAll(req, res));
 movieRoute.post('/', (req, res)=> movieController.create(req, res));
+movieRoute.delete('/', (req, res)=> movieController.delete(req, res));
 movieRoute.get('/:id', (req, res)=> movieController.findById(req, res));
+
 
 export default movieRoute;

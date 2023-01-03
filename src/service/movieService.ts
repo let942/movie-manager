@@ -27,6 +27,16 @@ class MovieService implements IMovieService {
     return Movies.create(movie)
   }
 
+  public async delete(id: number): Promise<number>{
+    await Movies.destroy({
+      where:{
+        id
+      }
+    })
+    return id
+  }
+
+
 
 }
 
