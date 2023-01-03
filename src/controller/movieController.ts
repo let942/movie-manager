@@ -33,12 +33,24 @@ export default class MovieController {
 
   public async delete(
     req: Request,
-    res: Response<number>,
+    res: Response,
   ){
-    const {id} = req.body
-    const numberId = parseInt(id)
+    const {id} = req.body;
+    const numberId = parseInt(id);
     await this._movieService.delete(numberId);
-    return res.status(200).json(numberId);
+    return res.status(204);
+  }
+
+  public async update(
+    req: Request,
+    res: Response<IMovie>,
+  ){
+    const {id} = req.params;
+    const numberId = parseInt(id);
+    const movie = req.body;
+    const updatedMovie = await this._movieService.update(numberId, movie);
+    console.log(updatedMovie)
+    return res.status(200).json(updatedMovie);
   }
 
 }

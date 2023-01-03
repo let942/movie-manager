@@ -36,7 +36,20 @@ class MovieService implements IMovieService {
     return id
   }
 
-
+public async update(id: number, movie: IMovieInput): Promise<IMovie> {
+  const updatedMovie = await Movies.update(
+    {
+      name: movie.name,
+      rating: movie.rating,
+      source: movie.source,
+      year: movie.year,
+      whatchedAt: movie.whatchedAt,
+  },
+  {
+    where: {id}
+  })
+  return this.findById(id)
+}
 
 }
 
