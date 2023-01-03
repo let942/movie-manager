@@ -1,6 +1,7 @@
 import IMovie from "../interface/IMovie";
 import Movies from "../database/models/movies";
 import IMovieService from "../interface/IMovieService";
+import { IMovieInput } from "../database/models/IMovieInput";
 
 class MovieService implements IMovieService {
   // private _movieModel: Movies;
@@ -19,6 +20,11 @@ class MovieService implements IMovieService {
       return movie
     }
       throw new Error('movie not found');
+  }
+
+  public async create(movie: IMovieInput): Promise<IMovie> {
+    console.log(movie)
+    return Movies.create(movie)
   }
 
 

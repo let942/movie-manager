@@ -22,4 +22,12 @@ export default class MovieController {
     const result = await this._movieService.findById(numberId);
     return res.status(200).json(result)
   }
+
+  public async create(
+    req: Request,
+    res: Response<IMovie>,
+  ) {
+    const movie = await this._movieService.create(req.body);
+    return res.status(201).json(movie);
+  }
 }
