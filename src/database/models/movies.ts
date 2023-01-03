@@ -4,6 +4,7 @@ import db from '.';
 class Movies extends Model {
   id!: number;
   name!: string;
+  rating!:number;
   source!: string;
   year!: number;
   whatchedAt!: Date;
@@ -18,6 +19,10 @@ Movies.init({
   },
   name: {
     type: STRING,
+    allowNull: false,
+  },
+  rating: {
+    type: INTEGER,
     allowNull: false,
   },
   source: {
@@ -35,7 +40,7 @@ Movies.init({
 }, {
   sequelize: db,
   modelName: 'movies',
-  timestamps: false,
+  timestamps: true,
 })
 
 export default Movies;
