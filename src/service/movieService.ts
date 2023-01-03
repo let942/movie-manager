@@ -23,7 +23,6 @@ class MovieService implements IMovieService {
   }
 
   public async create(movie: IMovieInput): Promise<IMovie> {
-    console.log(movie)
     return Movies.create(movie)
   }
 

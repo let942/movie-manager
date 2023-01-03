@@ -49,7 +49,6 @@ export default class MovieController {
     const numberId = parseInt(id);
     const movie = req.body;
     const updatedMovie = await this._movieService.update(numberId, movie);
-    console.log(updatedMovie)
     return res.status(200).json(updatedMovie);
   }
 
