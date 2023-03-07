@@ -1,7 +1,8 @@
+import { ErrorTypes } from '../error/catalog';
 import IMovie from "../interface/IMovie";
-import Movies from "../database/models/movies";
-import IMovieService from "../interface/IMovieService";
 import { IMovieInput } from "../database/models/IMovieInput";
+import IMovieService from "../interface/IMovieService";
+import Movies from "../database/models/movies";
 
 class MovieService implements IMovieService {
   // private _movieModel: Movies;
@@ -19,7 +20,7 @@ class MovieService implements IMovieService {
     if (movie != null){
       return movie
     }
-      throw new Error('movie not found');
+      throw new Error(ErrorTypes.EntityNotFound);
   }
 
   public async create(movie: IMovieInput): Promise<IMovie> {

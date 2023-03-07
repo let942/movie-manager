@@ -1,9 +1,11 @@
-import express from 'express'
+import 'express-async-errors';
+
+import { NextFunction, Request, Response } from 'express';
+
 import cors from 'cors';
+import errorHandler from './middleware/error';
+import express from 'express'
 import movieRoute from './routes/movieRoutes';
-
-import { Router, Request, Response, NextFunction } from 'express';
-
 
 class App {
   public app: express.Express;
@@ -12,6 +14,7 @@ class App {
     this.app = express();
     this.config();
     this.app.get('/', async (_req: Request, res: Response)=> res.send('Movies API'))
+    this.app.use(errorHandler);
     }
 
     private config(): void {
