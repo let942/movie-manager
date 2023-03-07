@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
-import IMovieService from '../interface/IMovieService';
+
 import IMovie from '../interface/IMovie';
+import IMovieService from '../interface/IMovieService';
 
 export default class MovieController {
   constructor(private _movieService: IMovieService){}
@@ -35,10 +36,10 @@ export default class MovieController {
     req: Request,
     res: Response,
   ){
-    const {id} = req.body;
+    const {id} = req.params;
     const numberId = parseInt(id);
     await this._movieService.delete(numberId);
-    return res.status(204);
+    return res.status(204).send();
   }
 
   public async update(
